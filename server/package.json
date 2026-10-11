@@ -1,0 +1,21 @@
+{
+  "name": "smart-notes-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend API server for SmartNotes AI using Google Gemini",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "node --check index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "@google/genai": "^2.28.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

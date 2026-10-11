@@ -1,0 +1,183 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #4F46E5;
+    --primary-hover: #4338CA;
+    --accent: #7C3AED;
+    --accent-hover: #6D28D9;
+    
+    /* Light Mode */
+    --background: #F8FAFC;
+    --foreground: #0F172A;
+    --card-bg: #FFFFFF;
+    --card-border: rgba(226, 232, 240, 0.8);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --input-bg: #FFFFFF;
+    --input-border: #E2E8F0;
+    --focus-ring: rgba(79, 70, 229, 0.15);
+    --text-muted: #64748B;
+  }
+
+  .dark {
+    /* Dark Mode */
+    --background: #09090B;
+    --foreground: #F4F4F5;
+    --card-bg: #18181B;
+    --card-border: rgba(39, 39, 42, 0.6);
+    --card-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 4px 20px rgba(0, 0, 0, 0.3);
+    --input-bg: #09090B;
+    --input-border: #27272A;
+    --focus-ring: rgba(124, 58, 237, 0.2);
+    --text-muted: #A1A1AA;
+  }
+
+  * {
+    box-sizing: border-box;
+    transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                color 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+  }
+}
+
+/* Base custom classes to match the SaaS look */
+.premium-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  border-radius: 16px;
+}
+
+/* Modern focus state */
+.premium-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--focus-ring);
+  outline: none;
+}
+
+/* Beautiful button interactive base class */
+.premium-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.premium-btn:active {
+  transform: scale(0.98);
+}
+
+.premium-btn-primary {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  border: 1px solid transparent;
+}
+
+.premium-btn-primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+}
+
+.premium-btn-secondary {
+  background-color: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--card-border);
+}
+
+.premium-btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  border-color: var(--text-muted);
+}
+
+.dark .premium-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* Abstract CSS Illustration Shapes */
+.illustration-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.illustration-shape-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  opacity: 0.12;
+  filter: blur(20px);
+  position: absolute;
+}
+
+.illustration-shape-grid {
+  width: 240px;
+  height: 120px;
+  background-image: radial-gradient(var(--text-muted) 1px, transparent 1px);
+  background-size: 16px 16px;
+  opacity: 0.15;
+  mask-image: linear-gradient(to bottom, black, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+.illustration-shape-card {
+  width: 180px;
+  height: 90px;
+  border: 1px dashed var(--card-border);
+  border-radius: 8px;
+  position: absolute;
+  transform: rotate(-6deg) translateY(-10px);
+  background: rgba(255, 255, 255, 0.01);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+/* Skeleton Loading */
+.skeleton-line {
+  background: linear-gradient(90deg, 
+    var(--card-border) 25%, 
+    rgba(124, 90, 250, 0.08) 37%, 
+    var(--card-border) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-shimmer 1.4s ease infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Ripple / Soft pulse */
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.02); opacity: 0.95; }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2s infinite ease-in-out;
+}

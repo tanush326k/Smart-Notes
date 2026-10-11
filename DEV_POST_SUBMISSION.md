@@ -38,10 +38,10 @@ It is an ultra-fast, minimalist note intelligence tool designed for hikers, gard
 
 ## 💻 Code
 
-{% github tanush326k/Smart-Notes %}
+{% github https://github.com/tanush326k/Smart-Notes %}
 
-* **GitHub Repository:** [https://github.com/tanush326k/Smart-Notes](https://github.com/tanush326k/Smart-Notes)
-* **License:** MIT
+* 🐙 **GitHub Repository:** [https://github.com/tanush326k/Smart-Notes](https://github.com/tanush326k/Smart-Notes)
+* 📄 **License:** [MIT License](https://github.com/tanush326k/Smart-Notes/blob/main/LICENSE)
 
 ---
 
